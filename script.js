@@ -8,7 +8,7 @@ const formattedToday = today.toLocaleDateString("en-US", {
 });
 
 document.getElementById("today-heading").textContent =
-    `Wind Forecast for Today: ${formattedToday}`;
+    `Wind Forecast for Today — ${formattedToday}`;
 const latitude = 28.267118;
 const longitude = -80.662580;
 

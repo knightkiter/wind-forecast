@@ -13,13 +13,13 @@ const latitude = 28.267118;
 const longitude = -80.662580;
 
 const url =
-    `https://api.open-meteo.com/v1/gfs?latitude=${latitude}` +
+    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}` +
     `&longitude=${longitude}` +
     `&hourly=wind_speed_10m,wind_gusts_10m,wind_direction_10m` +
     `&wind_speed_unit=mph` +
     `&timezone=America%2FNew_York` +
     `&forecast_days=7` +
-    `&cell_selection=sea`;
+    `&cell_selection=nearest`;
 
 function degreesToDirection(degrees) {
     const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];

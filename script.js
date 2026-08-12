@@ -1,3 +1,14 @@
+const today = new Date();
+
+const formattedToday = today.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+});
+
+document.getElementById("today-heading").textContent =
+    `Wind Forecast for Today: ${formattedToday}`;
 const latitude = 28.267118;
 const longitude = -80.662580;
 

@@ -1,0 +1,4 @@
+ecowitt_secrets.py
+__pycache__/
+ecowitt_observations.csv
+openmeteo_forecasts.csv

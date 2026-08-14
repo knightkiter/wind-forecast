@@ -114,7 +114,7 @@ async function loadForecast() {
         `;
 
         let weekBestWind = 0;
-        let weekBestIndex = 0;
+        let weekBestIndex = -1;
 
         for (let day = 0; day < 7; day++) {
             const start = day * 24 + 8;
@@ -141,10 +141,24 @@ async function loadForecast() {
             const displayTime = formatTime(hour);
             const compass = degreesToDirection(directions[dayBestIndex]);
 
-            if (winds[dayBestIndex] > weekBestWind) {
-                weekBestWind = winds[dayBestIndex];
-                weekBestIndex = dayBestIndex;
-            }
+            const preferredDirections = ["NE", "E", "SE"];
+            const candidatePreferred = preferredDirections.includes(compass);
+            
+            const currentBestPreferred =
+            weekBestIndex !== -1 &&
+            preferredDirections.includes(
+                degreesToDirection(directions[weekBestIndex])
+            );
+        
+        if (
+            weekBestIndex === -1 ||
+            (candidatePreferred && !currentBestPreferred) ||
+            (candidatePreferred === currentBestPreferred &&
+                winds[dayBestIndex] > weekBestWind)
+        ) {
+            weekBestWind = winds[dayBestIndex];
+            weekBestIndex = dayBestIndex;
+        }
 
             weekHTML += `
                 <tr>

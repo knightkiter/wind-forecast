@@ -191,7 +191,7 @@ async function loadForecast() {
 
         weekHTML += `
             <p>
-                <strong>Best Day This Week:</strong>
+                <strong>Best Kiteboarding Forecast::</strong>
                 ${bestDayName} ${weekBestTime} -
                 ${winds[weekBestIndex]} mph,
                 gust ${gusts[weekBestIndex]} mph,
